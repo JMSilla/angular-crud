@@ -1,0 +1,47 @@
+<div class="customersWrapper">
+    <table id="customers">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone number</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers" class="result">
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone}}</td>
+                <td>
+                    <button [routerLink]="['/edit', customer.id]">
+                        Edit
+                    </button>
+                    <button (click)="delete(customer)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="searchName" class="searchbox"
+                    [(ngModel)]="searchName" (keyup)="filterCustomers()" />
+                </td>
+                <td>
+                    <input type="text" name="searchEmail" class="searchbox"
+                    [(ngModel)]="searchEmail" (keyup)="filterCustomers()" />
+                </td>
+                <td>
+                    <input type="text" name="searchPhone" class="searchbox"
+                    [(ngModel)]="searchPhone" (keyup)="filterCustomers()" />
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="customerButtons">
+        <button routerLink="/create">
+            New customer
+        </button>
+    </div>
+</div>

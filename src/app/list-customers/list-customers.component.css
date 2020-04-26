@@ -1,0 +1,37 @@
+.customersWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table#customers {
+    border: solid 1px darkgrey;
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table#customers tbody tr.result:hover {
+    background-color: lightblue;
+}
+
+table#customers td {
+    border: solid 1px darkgrey;
+    padding: 5px;
+}
+
+table#customers thead td {
+    font-weight: bold;
+    padding: 5px;
+}
+
+input.searchbox {
+    width: 100%;
+    border: none;
+}
+
+#customerButtons {
+    width: 80%;
+    text-align: right;
+}

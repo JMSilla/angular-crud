@@ -1,0 +1,44 @@
+<form #submitForm="ngForm" (submit)="onSubmit(submitForm.status)">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" #nameInput="ngModel" [(ngModel)]="customer.name" 
+        required minlength="2" />
+        <div class="errorWrapper">
+            <div class="error" [hidden]="nameInput.pristine || nameInput.untouched || nameInput.valid">
+                Name is required and must be at least 2 characters length
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="email" name="email" #emailInput="ngModel" [(ngModel)]="customer.email"
+        required/>
+        <div class="errorWrapper">
+            <div class="error" [hidden]="emailInput.pristine || emailInput.untouched || emailInput.valid">
+                Email is not valid
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label>Phone</label>
+        <input type="text" name="phone" #phoneInput="ngModel" [(ngModel)]="customer.phone"
+        required pattern="\d+" minlength="3" />
+        <div class="errorWrapper">
+            <div class="error" [hidden]="phoneInput.pristine || phoneInput.untouched || phoneInput.valid">
+                Phone must be a number with at least 3 digits
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button routerLink="/">
+            Return
+        </button>
+
+        <button type="submit">
+            Save
+        </button>
+    </div>
+</form>
